@@ -1,11 +1,13 @@
 <template>
   <div>
     <ul class="headTab">
-           <li><i class="el-icon-arrow-left" @click="back"></i></li>
-           <li>注册</li>
-           <li></li>
-       </ul>
-    <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
+        <li><i class="el-icon-arrow-left" @click="back"></i></li>
+        <li>注册</li>
+        <li></li>
+    </ul>
+    <div class="content">
+        <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
+    </div>
   </div>
 </template>
 <script>

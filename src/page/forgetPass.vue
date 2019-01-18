@@ -18,14 +18,6 @@ export default {
 </script>
 
 <style scoped>
-.headTab{
-    display: flex;
-    padding: 5px 3px;
-    background-color: lightcoral;
-}
-.headTab li {
-    list-style: none;
-    flex: 1
-}
+
 </style>
 

@@ -1,10 +1,16 @@
 <template>
-  <div>
-    <P class="text-center">用户登录</P>
-    <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
-    <div class="passBox">
-        <el-button type="text" style="float: right" @click="skipWeb('/register')">注册</el-button>
-        <el-button type="text" style="float: left" @click="skipWeb('/forgetPass')">忘记密码</el-button>
+  <div class="box">
+    <ul class="headTab">
+        <li></li>
+        <li>用户登录</li>
+        <li></li>
+    </ul>
+    <div class="content">
+        <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
+        <div class="passBox">
+            <el-button type="text" style="float: right" @click="skipWeb('/register')">注册</el-button>
+            <el-button type="text" style="float: left" @click="skipWeb('/forgetPass')">忘记密码</el-button>
+        </div>
     </div>
   </div>
 </template>
