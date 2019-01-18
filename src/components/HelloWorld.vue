@@ -1,113 +1,119 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+  <div>
+    <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
   </div>
 </template>
-
 <script>
+import vfrom from './from'
 export default {
-  name: 'HelloWorld',
+  components: {
+    'v-from': vfrom
+  },
   data () {
+    var phoneyz = (rule, value, callback) => {
+      if (!/^1[34578]\d{9}$/.test(value)) {
+        callback(new Error('手机号码有误，请重填'))
+      } else {
+        callback()
+      }
+    }
     return {
-      msg: 'Welcome to Your Vue.js App'
+      inintForm: {
+        fromData: [
+          {
+            type: 'input',
+            paramter: 'name',
+            name: '姓名：',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'phone',
+            name: '电话：',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' },
+              {
+                validator: phoneyz,
+                message: '手机号码有误，请重填',
+                trigger: 'blur'
+              }
+            ]
+          },
+          {
+            type: 'upImg',
+            paramter: 'file',
+            name: '头像：',
+            value: '',
+            file: '',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'pass',
+            name: '密码：',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          // {
+          //   type: 'select',
+          //   multiple: true,
+          //   paramter: 'name',
+          //   name: '角色：',
+          //   value: [],
+          //   option: [],
+          //   rules: [
+          //     {
+          //       type: 'array',
+          //       required: true,
+          //       message: '此处不能为空',
+          //       trigger: 'change'
+          //     }
+          //   ]
+          // },
+          // {
+          //   type: 'treeSelect',
+          //   paramter: 'name',
+          //   name: '部门：',
+          //   value: '',
+          //   option: [],
+          //   rules: [
+          //     { required: true, message: '此处不能为空', trigger: 'blur' }
+          //   ]
+          // },
+          {
+            type: 'slideButton',
+            paramter: 'isIf',
+            name: '是否启用',
+            value: true
+          }
+        ]
+      }
+    }
+  },
+  mounted () {
+    // jsajx('json', 'get', '/admin/role/getrolekv.json', '', res => {
+    //   res = JSON.parse(res)
+    //   res.data.forEach(element => {
+    //     element.value = element.id
+    //   })
+    //   this.inintForm.fromData[4].option = res.data || []
+    // })
+  },
+  methods: {
+    submitForm (data) {
+      console.log(data)
     }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
