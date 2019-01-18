@@ -49,8 +49,8 @@
         </el-form-item>
       </div>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('inintData')">立即创建</el-button>
-        <el-button @click="resetForm('inintData')">重置</el-button>
+        <el-button type="primary" @click="submitForm('inintData')" v-if="inintData.btn.succeed">{{inintData.btn.succeed}}</el-button>
+        <el-button @click="resetForm('inintData')" v-if="inintData.btn.reset">{{inintData.btn.reset}}</el-button>
       </el-form-item>
     </el-form>
     <div v-else class="emptybox">
@@ -167,8 +167,8 @@ export default {
       })
     },
     resetForm (formName) {
-      // this.$refs[formName].resetFields()
-      console.log(this.from)
+      this.$refs[formName].resetFields()
+      // console.log(this.from)
       // console.log(this.inintData)
     },
     formatting (formName) {
@@ -208,5 +208,8 @@ export default {
 }
 .box-department:hover .department {
   display: block
+}
+.el-form-item[data-v-efe70a8c] {
+  margin-bottom: 15px !important;
 }
 </style>

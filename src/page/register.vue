@@ -1,11 +1,15 @@
 <template>
   <div>
-    <P class="text-center">注册</P>
+    <ul class="headTab">
+           <li><i class="el-icon-arrow-left" @click="back"></i></li>
+           <li>注册</li>
+           <li></li>
+       </ul>
     <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
   </div>
 </template>
 <script>
-import vfrom from './from'
+import vfrom from '../components/from'
 export default {
   components: {
     'v-from': vfrom
@@ -136,6 +140,9 @@ export default {
   methods: {
     submitForm (data) {
       console.log(data)
+    },
+    back () {
+        window.history.back(-1);
     }
   }
 }
