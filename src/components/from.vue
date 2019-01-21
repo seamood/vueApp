@@ -3,8 +3,12 @@
     <el-form ref='inintData' :model="inintData" v-if="true" label-width="100px">
       <div v-for="(item, index) of inintData.fromData" :key="index">
         <el-form-item :label="item.name" :prop="'fromData.' + index + '.value'" :rules="item.rules">
-          <div v-if="item.type == 'input'">
+          <div v-if="item.type == 'input'" style="display:flex">
             <el-input v-model="item.value" :placeholder="item.placeholder"></el-input>
+            <el-button type="text" v-if="item.yzm">获取验证码</el-button>
+          </div>
+          <div v-if="item.type == 'passBox'">
+            <el-input type="password" v-model="item.value" autocomplete="off"></el-input>
           </div>
           <div v-if="item.type == 'select'">
             <el-select v-model="item.value" :multiple='item.multiple' >

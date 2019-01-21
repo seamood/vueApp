@@ -76,6 +76,7 @@ export default {
   methods: {
     submitForm (data) {
       console.log(data)
+      this.$router.push('/')
     },
     skipWeb (url) {
         this.$router.push(url)

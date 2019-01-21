@@ -1,7 +1,30 @@
 <template>
-  <div>
-    <P class="text-center">注册</P>
-    <v-from :inintData='inintForm' v-on:submitForm='submitForm'></v-from>
+  <div class="box">
+    <div class="box-left" :style="leftStyle">
+      <ul class="inforBox">
+        <li><img src="./imge/288535-106.jpg" alt="" class="portrait"> <span>昵称</span></li>
+        <li><span>姓名：</span><span>真名</span></li>
+        <li><span>省份证号：</span><span>12365447889652152</span></li>
+        <li><span>职称：</span><span>XXX</span></li>
+        <li><span>教育背景：</span><span>XXXX</span></li>
+        <li><span>医院：</span><span>XXXX</span></li>
+        <li><span>科室：</span><span>XXX</span></li>
+        <li><span>手机号：</span><span>123654488522</span></li>
+      </ul>
+      <div class="toolBox">
+        <el-button type="text" @click="skipWeb('/set')">设置</el-button>
+      </div>
+    </div>
+    <div class="box-right" :style="rightStyle">
+      <ul class="headTab">
+          <li><i class="fa fa-align-justify" @click="closeToggle"></i></li>
+          <li class="title">首页</li>
+          <li></li>
+      </ul>
+      <div class="content">
+          
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -11,131 +34,38 @@ export default {
     'v-from': vfrom
   },
   data () {
-    var phoneyz = (rule, value, callback) => {
-      if (!/^1[34578]\d{9}$/.test(value)) {
-        callback(new Error('手机号码有误，请重填'))
-      } else {
-        callback()
-      }
-    }
     return {
-      inintForm: {
-        fromData: [
-          {
-            type: 'input',
-            paramter: 'name',
-            name: '姓名：',
-            value: '',
-            placrholder: '请输入...',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'input',
-            paramter: 'phone',
-            name: '电话：',
-            value: '',
-            placrholder: '请输入...',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' },
-              {
-                validator: phoneyz,
-                message: '手机号码有误，请重填',
-                trigger: 'blur'
-              }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'file',
-            name: '头像：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'input',
-            paramter: 'pass',
-            name: '密码：',
-            value: '',
-            placrholder: '请输入...',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'IDfileZ',
-            name: '身份证正面：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'IDfileF',
-            name: '身份证反面：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'docFile',
-            name: '医生职业证明：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'jobFile',
-            name: '职称证明：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'upImg',
-            paramter: 'studyFile',
-            name: '学历证明：',
-            value: '',
-            file: '',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          }
-        ],
-        btn: {
-          succeed: '注册',
-          reset: '重置'
-        }
-      }
+      leftStyle: {width: 0},
+      rightStyle: {flex: 1},
+      leafP: false
     }
   },
   mounted () {
-    // jsajx('json', 'get', '/admin/role/getrolekv.json', '', res => {
-    //   res = JSON.parse(res)
-    //   res.data.forEach(element => {
-    //     element.value = element.id
-    //   })
-    //   this.inintForm.fromData[4].option = res.data || []
-    // })
   },
   methods: {
     submitForm (data) {
       console.log(data)
+    },
+    closeToggle () {
+      this.leafP = !this.leafP
+      if (this.leafP) {
+         this.leftStyle = {
+           flex: 1
+         }
+         this.rightStyle = {
+           width: '100px'
+         }
+      } else {
+         this.leftStyle = {
+           width: 0
+         }
+         this.rightStyle = {
+           flex:1
+         }
+      }
+    },
+    skipWeb (url) {
+        this.$router.push(url)
     }
   }
 }
@@ -143,5 +73,37 @@ export default {
 <style scoped>
 .text-center{
   text-align: center;
+}
+.box{
+  display: flex;
+}
+.box .box-left, .box .box-right{
+  transition:width 2s;
+  -webkit-transition:width 2s; /* Safari */
+  overflow: hidden;
+}
+.box .box-left{
+  padding: 30px  0 0 0;
+}
+.box .box-right {
+  box-shadow: -4px 0 12px #ccc;
+}
+.title{
+  white-space: nowrap;
+}
+.portrait{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+.inforBox li:first-child {
+  border-bottom: 0;
+  padding-bottom: 20px;
+}
+.inforBox li{
+  list-style: none;
+  padding: 5px;
+  border-bottom: 1px solid #ccc;
 }
 </style>

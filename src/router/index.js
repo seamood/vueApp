@@ -5,6 +5,7 @@ import Couter from '@/vuex/couter'
 import Login from '@/page/login'
 import Register from '@/page/register'
 import FordetPass from '@/page/forgetPass'
+import Setting from '@/page/setting'
 Vue.use(Router)
 
 export default new Router({
@@ -12,7 +13,13 @@ export default new Router({
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld
+      component: HelloWorld,
+      children: [
+        {
+          path: '/set',
+          component: Setting
+        }
+      ]
     },
     {
       path: '/an',

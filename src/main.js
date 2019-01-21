@@ -7,6 +7,8 @@ import ElementUI from 'element-ui'
 // element-ui全局样式表
 import 'element-ui/lib/theme-chalk/index.css'
 import store from './vuex/store'
+// font-awesome字体库
+import 'font-awesome/css/font-awesome.min.css'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
