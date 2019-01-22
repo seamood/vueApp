@@ -7,6 +7,10 @@ import Register from '@/page/register'
 import FordetPass from '@/page/forgetPass'
 import Setting from '@/page/setting'
 import Main from '@/page/main'
+import OnlineAccepts from '@/page/onlineAccepts'
+import DoctorClass from '@/page/doctorClass'
+import DoctorReturns from '@/page/doctorReturns'
+import ClassRoom from '@/page/classroom'
 Vue.use(Router)
 
 export default new Router({
@@ -23,6 +27,22 @@ export default new Router({
         {
           path: '/set',
           component: Setting
+        },
+        {
+          path: '/onlineAccepts',
+          component: OnlineAccepts
+        },
+        {
+          path: '/doctorClass',
+          component: DoctorClass
+        },
+        {
+          path: '/doctorReturns',
+          component: DoctorReturns
+        },
+        {
+          path: '/classroom',
+          component: ClassRoom
         }
       ]
     },

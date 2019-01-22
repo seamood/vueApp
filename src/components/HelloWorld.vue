@@ -13,24 +13,24 @@
       </ul>
       <div class="toolBox">
         <el-button type="text" @click="skipWeb('/set')">设置</el-button>
-        <el-button type="text">退出账号</el-button>
+        <el-button type="text">退出登录</el-button>
       </div>
     </div>
     <div class="box-right" :style="rightStyle">
       <ul class="headTab">
-            <li><i class="fa fa-align-justify" @click="closeToggle"></i></li>
-            <li class="title">首页</li>
-            <li></li>
-        </ul>
+          <li><i class="fa fa-align-justify" @click="closeToggle"></i></li>
+          <li class="title">首页</li>
+          <li></li>
+      </ul>
       <div class="conent">
           
       </div>
       <div class="bottom-box">
         <ul class="flex-box">
-          <li>在线接诊</li>
-          <li>医生收益</li>
-          <li>专家讲堂</li>
-          <li>医生课堂</li>
+          <li @click="skipWeb('/onlineAccepts')">在线接诊</li>
+          <li @click="skipWeb('/doctorClass')">医生收益</li>
+          <li @click="skipWeb('/doctorReturns')">专家讲堂</li>
+          <li @click="skipWeb('/classroom')">医生课堂</li>
         </ul>
       </div>
     </div>
@@ -117,6 +117,7 @@ export default {
 }
 .flex-box {
   display: flex;
+  background-color: lightcoral;
 }
 .flex-box li {
   list-style: none;
