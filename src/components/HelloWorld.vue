@@ -8,21 +8,30 @@
         <li><span>职称：</span><span>XXX</span></li>
         <li><span>教育背景：</span><span>XXXX</span></li>
         <li><span>医院：</span><span>XXXX</span></li>
-        <li><span>科室：</span><span>XXX</span></li>
+        <li><span>科室：</span><span>XXXX</span></li>
         <li><span>手机号：</span><span>123654488522</span></li>
       </ul>
       <div class="toolBox">
         <el-button type="text" @click="skipWeb('/set')">设置</el-button>
+        <el-button type="text">退出账号</el-button>
       </div>
     </div>
     <div class="box-right" :style="rightStyle">
       <ul class="headTab">
-          <li><i class="fa fa-align-justify" @click="closeToggle"></i></li>
-          <li class="title">首页</li>
-          <li></li>
-      </ul>
-      <div class="content">
+            <li><i class="fa fa-align-justify" @click="closeToggle"></i></li>
+            <li class="title">首页</li>
+            <li></li>
+        </ul>
+      <div class="conent">
           
+      </div>
+      <div class="bottom-box">
+        <ul class="flex-box">
+          <li>在线接诊</li>
+          <li>医生收益</li>
+          <li>专家讲堂</li>
+          <li>医生课堂</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -105,5 +114,19 @@ export default {
   list-style: none;
   padding: 5px;
   border-bottom: 1px solid #ccc;
+}
+.flex-box {
+  display: flex;
+}
+.flex-box li {
+  list-style: none;
+  flex: 1;
+  text-align: center;
+  padding: 10px 0;
+}
+.bottom-box {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 </style>

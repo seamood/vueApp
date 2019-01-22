@@ -6,15 +6,20 @@ import Login from '@/page/login'
 import Register from '@/page/register'
 import FordetPass from '@/page/forgetPass'
 import Setting from '@/page/setting'
+import Main from '@/page/main'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld,
+      name: 'Main',
+      component: Main,
       children: [
+        {
+          path: '',
+          component: HelloWorld
+        },
         {
           path: '/set',
           component: Setting

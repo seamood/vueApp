@@ -2,7 +2,7 @@
   <div>
     <ul class="headTab">
         <li><i class="el-icon-arrow-left" @click="back"></i></li>
-        <li>注册</li>
+        <li>资源修改</li>
         <li></li>
     </ul>
     <div class="content">
@@ -36,16 +36,6 @@ export default {
         fromData: [
           {
             type: 'input',
-            paramter: 'nickname',
-            name: '昵称：',
-            value: '',
-            placrholder: '请输入...',
-            rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'input',
             paramter: 'name',
             name: '姓名：',
             value: '',
@@ -55,11 +45,11 @@ export default {
             ]
           },
           {
-            type: 'input',
-            paramter: 'IdNumber',
-            name: '身份证号：',
+            type: 'upImg',
+            paramter: 'file',
+            name: '头像：',
             value: '',
-            placrholder: '请输入...',
+            file: '',
             rules: [
               { required: true, message: '此处不能为空', trigger: 'blur' }
             ]
@@ -91,28 +81,73 @@ export default {
             ]
           },
           {
-            type: 'upImg',
-            paramter: 'file',
-            name: '头像：',
+            type: 'input',
+            paramter: 'IdNumber',
+            name: '身份证号：',
             value: '',
-            file: '',
+            placrholder: '请输入...',
             rules: [
               { required: true, message: '此处不能为空', trigger: 'blur' }
             ]
           },
           {
             type: 'input',
-            paramter: 'pass',
-            name: '密码：',
+            paramter: 'adept',
+            name: '擅长分类',
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' },
-              {
-                validator: phoneyz,
-                message: '手机号码有误，请重填',
-                trigger: 'blur'
-              }
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'academic',
+            name: '学术成果',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'educational',
+            name: '教育背景',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'hospital',
+            name: '医院',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'administrative',
+            name: '科室',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
+            ]
+          },
+          {
+            type: 'input',
+            paramter: 'technical',
+            name: '职称',
+            value: '',
+            placrholder: '请输入...',
+            rules: [
+              { required: true, message: '此处不能为空', trigger: 'blur' }
             ]
           },
           {
@@ -147,8 +182,7 @@ export default {
           }
         ],
         btn: {
-          succeed: '注册',
-          reset: '重置'
+          succeed: '审核'
         }
       }
     }
