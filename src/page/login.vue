@@ -76,7 +76,17 @@ export default {
   methods: {
     submitForm (data) {
       console.log(data)
-      this.$router.push('/')
+      data = JSON.parse(data)
+      console.log(data)
+      var pass = data.pass;
+      var phone = data.phone;
+      localStorage.getItem('login', false)
+      localStorage.getItem('zhupass', pass)
+      localStorage.getItem('zhuphone', phone)
+      if (pass&&phone) {
+        localStorage.getItem('login', true)
+        this.$router.push('/')
+      }
     },
     skipWeb (url) {
         this.$router.push(url)

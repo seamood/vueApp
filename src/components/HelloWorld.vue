@@ -13,7 +13,7 @@
       </ul>
       <div class="toolBox">
         <el-button type="text" @click="skipWeb('/set')">设置</el-button>
-        <el-button type="text">退出登录</el-button>
+        <el-button type="text" @click="loginOut">退出登录</el-button>
       </div>
     </div>
     <div class="box-right" :style="rightStyle">
@@ -23,12 +23,31 @@
           <li></li>
       </ul>
       <div class="conent">
-          
+          <el-collapse accordion>
+            <el-collapse-item title="一致性 Consistency" name="1">
+              <div>与现实生活一致：与现实生活的流程、逻辑保持一致，遵循用户习惯的语言和概念；</div>
+              <div>在界面中一致：所有的元素和结构需保持一致，比如：设计样式、图标和文本、元素的位置等。</div>
+            </el-collapse-item>
+            <el-collapse-item title="反馈 Feedback" name="2">
+              <div>控制反馈：通过界面样式和交互动效让用户可以清晰的感知自己的操作；</div>
+              <div>页面反馈：操作后，通过页面元素的变化清晰地展现当前状态。</div>
+            </el-collapse-item>
+            <el-collapse-item title="效率 Efficiency" name="3">
+              <div>简化流程：设计简洁直观的操作流程；</div>
+              <div>清晰明确：语言表达清晰且表意明确，让用户快速理解进而作出决策；</div>
+              <div>帮助用户识别：界面简单直白，让用户快速识别而非回忆，减少用户记忆负担。</div>
+            </el-collapse-item>
+            <el-collapse-item title="可控 Controllability" name="4">
+              <div>用户决策：根据场景可给予用户操作建议或安全提示，但不能代替用户进行决策；</div>
+              <div>结果可控：用户可以自由的进行操作，包括撤销、回退和终止当前操作等。</div>
+            </el-collapse-item>
+          </el-collapse>
       </div>
       <div class="bottom-box">
         <ul class="flex-box">
           <li @click="skipWeb('/onlineAccepts')">在线接诊</li>
-          <li @click="skipWeb('/doctorClass')">医生收益</li>
+          <li @click="skipWeb('/inforRelease')">资讯发布</li>
+          <li @click="skipWeb('/doctorClass')">收益管理</li>
           <li @click="skipWeb('/doctorReturns')">专家讲堂</li>
           <li @click="skipWeb('/classroom')">医生课堂</li>
         </ul>
@@ -73,6 +92,19 @@ export default {
          }
       }
     },
+    loginOut () {
+      const _this = this;
+      this.$confirm('确认退出吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning',
+          center: false
+        }).then(() => {
+          _this.$router.push('/login')
+        }).catch(() => {
+
+        });
+    },
     skipWeb (url) {
         this.$router.push(url)
     }
@@ -115,19 +147,6 @@ export default {
   padding: 5px;
   border-bottom: 1px solid #ccc;
 }
-.flex-box {
-  display: flex;
-  background-color: lightcoral;
-}
-.flex-box li {
-  list-style: none;
-  flex: 1;
-  text-align: center;
-  padding: 10px 0;
-}
-.bottom-box {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
+
+
 </style>

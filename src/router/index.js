@@ -11,6 +11,7 @@ import OnlineAccepts from '@/page/onlineAccepts'
 import DoctorClass from '@/page/doctorClass'
 import DoctorReturns from '@/page/doctorReturns'
 import ClassRoom from '@/page/classroom'
+import InforRelease from '@/page/inforRelease'
 Vue.use(Router)
 
 export default new Router({
@@ -43,6 +44,10 @@ export default new Router({
         {
           path: '/classroom',
           component: ClassRoom
+        },
+        {
+          path: '/inforRelease',
+          component: InforRelease
         }
       ]
     },
