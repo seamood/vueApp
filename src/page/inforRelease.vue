@@ -3,7 +3,7 @@
         <ul class="headTab">
             <li><i class="el-icon-arrow-left" @click="back"></i></li>
             <li class="title">资讯发布</li>
-            <li></li>
+            <li class="text-left"><i class="el-icon-plus"></i></li>
         </ul>
         <div class="centent">
             <ul class="chat-box">
@@ -25,10 +25,21 @@
                  
             </div>
         </div>
+        <div class="bottom-box">
+        <ul class="flex-box">
+          <li>全部</li>
+          <li>我的</li>
+        </ul>
+      </div>
     </div>
 </template>
 <script>
 export default {
+    data () {
+        return {
+            textarea2: ''
+        }
+    },
     methods: {
         back () {
             window.history.back(-1);
@@ -95,5 +106,10 @@ export default {
     position: absolute;
     right: -12px;
     top: 0px;
+}
+.text-left{
+    text-align: right;
+    padding-right: 6px;
+    cursor: pointer;
 }
 </style>
