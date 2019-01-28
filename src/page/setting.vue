@@ -41,7 +41,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -51,7 +51,7 @@ export default {
             value: '',
             file: '',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -61,10 +61,10 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' },
+              { required: true, trigger: 'blur' },
               {
                 validator: phoneyz,
-                message: '手机号码有误，请重填',
+                
                 trigger: 'blur'
               }
             ]
@@ -77,7 +77,7 @@ export default {
             yzm: true,
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -87,7 +87,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -97,7 +97,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true, trigger: 'blur' }
             ]
           },
           {
@@ -107,7 +107,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true, trigger: 'blur' }
             ]
           },
           {
@@ -117,7 +117,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -127,7 +127,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -137,7 +137,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true, trigger: 'blur' }
             ]
           },
           {
@@ -147,7 +147,7 @@ export default {
             value: '',
             placrholder: '请输入...',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -157,7 +157,7 @@ export default {
             value: '',
             file: '',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -167,7 +167,7 @@ export default {
             value: '',
             file: '',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           },
           {
@@ -177,7 +177,7 @@ export default {
             value: '',
             file: '',
             rules: [
-              { required: true, message: '此处不能为空', trigger: 'blur' }
+              { required: true,  trigger: 'blur' }
             ]
           }
         ],

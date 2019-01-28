@@ -5,7 +5,7 @@
         <el-form-item :label="item.name" :prop="'fromData.' + index + '.value'" :rules="item.rules">
           <div v-if="item.type == 'input'" style="display:flex">
             <el-input v-model="item.value" :placeholder="item.placeholder"></el-input>
-            <el-button type="text" v-if="item.yzm">获取验证码</el-button>
+            <el-button type="text" v-if="item.yzm">验证码</el-button>
           </div>
           <div v-if="item.type == 'passBox'">
             <el-input type="password" v-model="item.value" autocomplete="off"></el-input>
