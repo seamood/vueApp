@@ -10,13 +10,14 @@ import store from './vuex/store'
 // font-awesome字体库
 import 'font-awesome/css/font-awesome.min.css'
 Vue.config.productionTip = false
-
 Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
-  components: { App },
+  components: {
+    App
+  },
   template: '<App/>'
 })

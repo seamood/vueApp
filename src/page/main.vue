@@ -19,6 +19,10 @@
 </template>
 <script>
 export default {
-    
+    methods: {
+        skipWeb (url) {
+            this.$router.push(url)
+        }
+    }
 }
 </script>

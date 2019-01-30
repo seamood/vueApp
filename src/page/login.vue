@@ -16,6 +16,7 @@
 </template>
 <script>
 import vfrom from '../components/from'
+import {jsajx} from '../url/jsajx'
 export default {
   components: {
     'v-from': vfrom
@@ -28,14 +29,21 @@ export default {
         callback()
       }
     }
+    var useaccount = localStorage.useAccount
+    if (useaccount != 'undefined') {
+       useaccount = localStorage.useAccount
+    } else {
+      useaccount = ''
+    }
+    
     return {
       inintForm: {
         fromData: [
            {
             type: 'input',
-            paramter: 'phone',
+            paramter: 'account',
             name: '电话：',
-            value: '',
+            value: useaccount,
             placrholder: '请输入...',
             rules: [
               { required: true, message: '此处不能为空', trigger: 'blur' },
@@ -47,8 +55,8 @@ export default {
             ]
           },
           {
-            type: 'input',
-            paramter: 'pass',
+            type: 'passBox',
+            paramter: 'pwd',
             name: '密码：',
             value: '',
             placrholder: '请输入...',
@@ -65,27 +73,37 @@ export default {
     }
   },
   mounted () {
-    // jsajx('json', 'get', '/admin/role/getrolekv.json', '', res => {
-    //   res = JSON.parse(res)
-    //   res.data.forEach(element => {
-    //     element.value = element.id
-    //   })
-    //   this.inintForm.fromData[4].option = res.data || []
-    // })
   },
   methods: {
     submitForm (data) {
       console.log(data)
-      data = JSON.parse(data)
-      console.log(data)
-      var pass = data.pass;
-      var phone = data.phone;
-      localStorage.getItem('login', false)
-      localStorage.getItem('zhupass', pass)
-      localStorage.getItem('zhuphone', phone)
+      var dataJson = JSON.parse(data)
+      var phone = dataJson.account;
+      var  pass = dataJson.pwd;
       if (pass&&phone) {
-        localStorage.getItem('login', true)
-        this.$router.push('/')
+        jsajx(
+          '',
+          "post",
+          "/doctor/account/loginbypwd.json",
+          data,
+          res => {
+            res = JSON.parse(res)
+            const data = res.data || []
+            console.log(data)
+            if (res.status === 200) {
+              // 请求成功
+              this.$message({
+                message: '登陆成功',
+                type: 'success'
+              })
+              localStorage.useAccount = data.account || ''
+              localStorage.setItem('login', true)
+              localStorage.setItem('token',data.token)
+              this.$router.push('/')
+            } else {
+              this.$message.error(res.msg || '登陆失败')
+            }
+        })
       }
     },
     skipWeb (url) {

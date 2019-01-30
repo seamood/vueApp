@@ -1,6 +1,6 @@
-// import store from '../store'
+import {baseUrl} from '../common/env'
 export const jsajx = function (dataType, urlType, url, fromData, fn) {
-  url = '/api' + url
+  url = baseUrl + url
   fromData = fromData || ''
   urlType = urlType.toUpperCase()
   dataType = dataType.toUpperCase()

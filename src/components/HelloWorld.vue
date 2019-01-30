@@ -48,6 +48,7 @@
 </template>
 <script>
 import vfrom from './from'
+import {jsajx} from '../url/jsajx'
 export default {
   components: {
     'v-from': vfrom
@@ -91,7 +92,24 @@ export default {
           type: 'warning',
           center: false
         }).then(() => {
-          _this.$router.push('/login')
+          jsajx(
+            '',
+            "get",
+            "/doctor/account/logout.json",
+            '',
+            res => {
+              res = JSON.parse(res)
+              const data = res.data || []
+              console.log(data)
+              if (res.status === 200) {
+                // 请求成功
+                localStorage.setItem('login', false)
+                this.$router.push('/login')
+              } else {
+                this.$message.error(res.msg || '注册失败')
+              }
+          })
+          
         }).catch(() => {
 
         });

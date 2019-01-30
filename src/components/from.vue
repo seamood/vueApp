@@ -5,7 +5,7 @@
         <el-form-item :label="item.name" :prop="'fromData.' + index + '.value'" :rules="item.rules">
           <div v-if="item.type == 'input'" style="display:flex">
             <el-input v-model="item.value" :placeholder="item.placeholder"></el-input>
-            <el-button type="text" v-if="item.yzm">验证码</el-button>
+            <el-button type="text" v-if="item.yzm" @click="yzm(inintData.fromData[0].value)">验证码</el-button>
           </div>
           <div v-if="item.type == 'passBox'">
             <el-input type="password" v-model="item.value" autocomplete="off"></el-input>
@@ -169,6 +169,15 @@ export default {
           return false
         }
       })
+    },
+    yzm (account) {
+      if (!account) {
+        this.$message({
+            type: 'info',
+            message: '请先填写电话号码'
+        });
+      }
+      this.$emit('onyzm', account)
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()
