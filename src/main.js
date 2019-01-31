@@ -11,6 +11,25 @@ import store from './vuex/store'
 import 'font-awesome/css/font-awesome.min.css'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
+// 登陆中间验证
+console.log(localStorage.token, 111111111111)
+router.beforeEach((to, from, next) => {
+  // document.title = to.meta.pageTitle || '里定医疗'
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // console.log('store.state.userInfo.token', store.state.userInfo.token)
+    if (localStorage.token) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: {redirect: to.fullPath}
+      })
+    }
+  } else {
+    next()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

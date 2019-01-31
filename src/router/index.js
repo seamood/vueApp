@@ -1,17 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Couter from '@/vuex/couter'
-import Login from '@/page/login'
-import Register from '@/page/register'
-import FordetPass from '@/page/forgetPass'
-import Setting from '@/page/setting'
-import Main from '@/page/main'
-import OnlineAccepts from '@/page/onlineAccepts'
-import DoctorClass from '@/page/doctorClass'
-import DoctorReturns from '@/page/doctorReturns'
-import ClassRoom from '@/page/classroom'
-import InforRelease from '@/page/inforRelease'
 Vue.use(Router)
 
 export default new Router({
@@ -19,57 +7,65 @@ export default new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main,
+      component: resolve => require(['../page/main'], resolve),
+      meta: {
+        requiresAuth: true
+      },
       children: [
         {
           path: '',
-          component: HelloWorld
+          component: resolve => require(['../components/HelloWorld'], resolve)
         },
         {
           path: '/set',
-          component: Setting
+          component: resolve => require(['../page/setting'], resolve)
         },
         {
           path: '/onlineAccepts',
-          component: OnlineAccepts
-        },
-        {
-          path: '/doctorClass',
-          component: DoctorClass
+          component: resolve => require(['../page/onlineAccepts'], resolve)
         },
         {
           path: '/doctorReturns',
-          component: DoctorReturns
+          component: resolve => require(['../page/doctorReturns'], resolve)
         },
         {
-          path: '/classroom',
-          component: ClassRoom
+          path: '/doctorClass',
+          component: resolve => require(['../page/doctorClass'], resolve)
         },
         {
           path: '/inforRelease',
-          component: InforRelease
+          component: resolve => require(['../page/inforRelease'], resolve)
+        },
+        {
+          path: '/classroom',
+          component: resolve => require(['../page/classroom'], resolve)
         }
       ]
     },
     {
       path: '/an',
       name: 'Couter',
-      component: Couter
+      component: resolve => require(['../vuex/couter'], resolve)
     },
     {
       path: '/login',
       name: '登录',
-      component: Login
+      component: resolve => require(['../page/login'], resolve)
     },
     {
       path: '/register',
       name: '注册',
-      component: Register
+      component: resolve => require(['../page/register'], resolve)
     },
     {
       path: '/forgetPass',
       name: '忘记密码',
-      component: FordetPass
+      component: resolve => require(['../page/forgetPass'], resolve)
+    },
+    {
+      path: '*',
+      name: '错误页面',
+      component: resolve => require(['../page/error'], resolve)
     }
   ]
 })

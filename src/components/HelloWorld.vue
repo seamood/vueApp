@@ -43,6 +43,15 @@
             </el-collapse-item>
           </el-collapse>
       </div>
+      <div class="bottom-box">
+          <ul class="flex-box">
+              <li @click="skipWeb('/onlineAccepts')">在线接诊</li>
+              <li @click="skipWeb('/inforRelease')">资讯发布</li>
+              <li @click="skipWeb('/doctorReturns')">收益管理</li>
+              <li @click="skipWeb('/classroom')">专家讲堂</li>
+              <li @click="skipWeb('/doctorClass')">医生课堂</li>
+          </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -104,6 +113,7 @@ export default {
               if (res.status === 200) {
                 // 请求成功
                 localStorage.setItem('login', false)
+                localStorage.removeItem('token')
                 this.$router.push('/login')
               } else {
                 this.$message.error(res.msg || '注册失败')

@@ -17,8 +17,9 @@ export const jsajx = function (dataType, urlType, url, fromData, fn) {
     default:
       xmlhttp.setRequestHeader('Content-Type', 'application/json')
   }
-  //   xmlhttp.setRequestHeader('Content-Type', 'multipart/form-data')
-  //   xmlhttp.setRequestHeader('admin-token-key', store.state.userInfo.token)
+  if (localStorage.token) {
+    xmlhttp.setRequestHeader('doctor-token-key', localStorage.token)
+  }
   if (urlType === 'POST') {
     xmlhttp.send(fromData)
   } else {

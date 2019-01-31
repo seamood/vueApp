@@ -96,9 +96,9 @@ export default {
                 message: '登陆成功',
                 type: 'success'
               })
-              localStorage.useAccount = data.account || ''
-              localStorage.setItem('login', true)
-              localStorage.setItem('token',data.token)
+              localStorage.useAccount = phone
+              localStorage.login = true
+              localStorage.token = data.token
               this.$router.push('/')
             } else {
               this.$message.error(res.msg || '登陆失败')
