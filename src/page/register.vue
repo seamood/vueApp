@@ -160,7 +160,7 @@ export default {
   methods: {
     submitForm (data) {
       console.log(data)
-        var data = JSON.parse(data)
+        // var data = JSON.parse(data)
         jsajx(
           '',
           "post",

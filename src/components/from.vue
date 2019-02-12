@@ -74,70 +74,70 @@ export default {
     return {
       from: {
         fromData: [
-          { 
-            type: 'input',
-            parameter: 'name',
-            name: '电话号码：',
-            value: '',
-            placeholder: '请输入...',
-            rules: [
-              { required: true, message: '请输入电话号码', trigger: 'blur' }
-            ]
-          },
-          {
-            type: 'select',
-            parameter: 'name',
-            name: '下拉框',
-            value: '',
-            placeholder: '请选择...',
-            option: [
-              { name: 'select1', value: '1' },
-              { name: 'select2', value: '2' },
-              { name: 'select3', value: '3' }
-            ]
-          },
-          {
-            type: 'slideButton',
-            parameter: 'name',
-            name: '按钮一',
-            value: true
-          },
-          {
-            type: 'checkbox',
-            parameter: 'name',
-            name: '复选框',
-            btnType: 'city',
-            value: [],
-            option: ['cheked1', 'cheked2', 'cheked3']
-          },
-          {
-            type: 'radio',
-            parameter: 'name',
-            name: '单选框',
-            btnType: 'name',
-            value: [],
-            option: ['备选一', '备选二', '备选三']
-          },
-          {
-            type: 'textread',
-            parameter: 'name',
-            name: '多选文本框',
-            value: ''
-          },
-          {
-            type: 'upImg',
-            parameter: 'name',
-            name: '图片上传',
-            file: '',
-            value: ''
-          },
-          {
-            type: 'treeSelect',
-            parameter: 'name',
-            name: 'treeSelect',
-            placeholder: '请输入...',
-            value: ''
-          }
+          // { 
+          //   type: 'input',
+          //   parameter: 'name',
+          //   name: '电话号码：',
+          //   value: '',
+          //   placeholder: '请输入...',
+          //   rules: [
+          //     { required: true, message: '请输入电话号码', trigger: 'blur' }
+          //   ]
+          // },
+          // {
+          //   type: 'select',
+          //   parameter: 'name',
+          //   name: '下拉框',
+          //   value: '',
+          //   placeholder: '请选择...',
+          //   option: [
+          //     { name: 'select1', value: '1' },
+          //     { name: 'select2', value: '2' },
+          //     { name: 'select3', value: '3' }
+          //   ]
+          // },
+          // {
+          //   type: 'slideButton',
+          //   parameter: 'name',
+          //   name: '按钮一',
+          //   value: true
+          // },
+          // {
+          //   type: 'checkbox',
+          //   parameter: 'name',
+          //   name: '复选框',
+          //   btnType: 'city',
+          //   value: [],
+          //   option: ['cheked1', 'cheked2', 'cheked3']
+          // },
+          // {
+          //   type: 'radio',
+          //   parameter: 'name',
+          //   name: '单选框',
+          //   btnType: 'name',
+          //   value: [],
+          //   option: ['备选一', '备选二', '备选三']
+          // },
+          // {
+          //   type: 'textread',
+          //   parameter: 'name',
+          //   name: '多选文本框',
+          //   value: ''
+          // },
+          // {
+          //   type: 'upImg',
+          //   parameter: 'name',
+          //   name: '图片上传',
+          //   file: '',
+          //   value: ''
+          // },
+          // {
+          //   type: 'treeSelect',
+          //   parameter: 'name',
+          //   name: 'treeSelect',
+          //   placeholder: '请输入...',
+          //   value: ''
+          // }
         ]
       }
     }

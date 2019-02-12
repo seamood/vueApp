@@ -8,9 +8,9 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: resolve => require(['../page/main'], resolve),
-      meta: {
-        requiresAuth: true
-      },
+      // meta: {
+      //   requiresAuth: true
+      // },
       children: [
         {
           path: '',
@@ -39,8 +39,16 @@ export default new Router({
         {
           path: '/classroom',
           component: resolve => require(['../page/classroom'], resolve)
+        },
+        {
+          path: '/chat',
+          component: resolve => require(['../page/chat'], resolve)
         }
       ]
+    },
+    {
+      path: '/user',
+      component: resolve => require(['../page/user'], resolve)
     },
     {
       path: '/an',

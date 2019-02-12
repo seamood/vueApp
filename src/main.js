@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './vuex/store'
 // font-awesome字体库
 import 'font-awesome/css/font-awesome.min.css'
+import './style.css'
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 // 登陆中间验证
